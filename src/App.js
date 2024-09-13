@@ -1,25 +1,23 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import EmployeeForm from './components/EmployeeForm';
+import Payslip from './components/Payslip';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [employeeData, setEmployeeData] = useState(null);
+
+  const handleCalculatePayslip = (data) => {
+    console.log('Employee data passed to App:', data); // Log the data received from EmployeeForm
+    setEmployeeData(data);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className ="heading">Employee Monthly Payslip Generator</h1>
+      <EmployeeForm onCalculatePayslip={handleCalculatePayslip} />
+      {employeeData && <Payslip employeeData={employeeData} />}
     </div>
   );
-}
+};
 
 export default App;
