@@ -1,22 +1,21 @@
-import React, { useState } from 'react';
-import EmployeeForm from './components/EmployeeForm';
-import Payslip from './components/Payslip';
-import './App.css';
+// App.js
+
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './views/Home';
+import Calculation from './views/Calculation';
+import { PayslipProvider } from './context/PayslipContext';
 
 const App = () => {
-  const [employeeData, setEmployeeData] = useState(null);
-
-  const handleCalculatePayslip = (data) => {
-    console.log('Employee data passed to App:', data); // Log the data received from EmployeeForm
-    setEmployeeData(data);
-  };
-
   return (
-    <div className="App">
-      <h1 className ="heading">Employee Monthly Payslip Generator</h1>
-      <EmployeeForm onCalculatePayslip={handleCalculatePayslip} />
-      {employeeData && <Payslip employeeData={employeeData} />}
-    </div>
+    <PayslipProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/calculation" element={<Calculation />} />
+        </Routes>
+      </Router>
+    </PayslipProvider>
   );
 };
 
