@@ -12,9 +12,3 @@ root.render(
     <App />
   </React.StrictMode>
 );
-
-// Performance tracking (optional)
-// If you want to measure performance, you can use this.
-// This is useful for analyzing how your app performs in production.
-// Learn more: https://bit.ly/CRA-vitals
-// reportWebVitals(console.log);

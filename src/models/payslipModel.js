@@ -19,7 +19,7 @@ const getSortedTaxRates = () => {
   return taxRates.sort((a, b) => b.startFrom - a.startFrom);
 };
 
-export const calculatePaySlip = (employee) => {
+export const calculatePayslip = (employee) => {
   // Find the applied tax rate using `find()` after filtering the sorted tax rates
   const appliedTaxRate = getSortedTaxRates().find(taxRate => employee.annualSalary >= taxRate.startFrom);
 

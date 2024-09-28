@@ -3,8 +3,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './views/Home';
-import Calculation from './views/Calculation';
-import { PayslipProvider } from './context/PayslipContext';
+import Calculation from './controller/Calculation';
+import { PayslipProvider } from './models/PayslipContext';
 
 const App = () => {
   return (
